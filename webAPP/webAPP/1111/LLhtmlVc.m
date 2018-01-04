@@ -35,7 +35,16 @@
     [super viewDidLayoutSubviews];
     
     
-    _webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    if([UIScreen mainScreen].bounds.size.height ==480){
+        
+         _webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height)];
+        
+    }else{
+        
+        _webView = [[WKWebView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height+20)];
+    }
+    
+    
     _webView.navigationDelegate = self;
     
     NSBundle *bundle = [NSBundle mainBundle];
